@@ -1,11 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bailando</title>
+    <title>Dança de cores</title>
+    <style>
+        /* Resetando margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            background-color: #be1202;
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Logo */
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Menu principal */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Estilos para o ícone do hambúrguer */
+        .danca {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+
+        .danca span {
+            display: block;
+            height: 4px;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        img{
+            height: 50px;
+            width: 50px;
+        }
+        /* Menu responsivo (em telas menores) */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #be1202;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .danca {
+                display: flex;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* Seções do site */
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #be1202;
+            color: white;
+        }
+
+        /* Responsividade extra */
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        
+    </style>
 </head>
 <body>
-    
+    <!-- Cabeçalho com menu -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#"><img src="../imagem/novalogo-removebg-preview.png" alt="Logo Dança com cores"></a>
+            </div>
+            <!-- Menu (links) -->
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            
+            <div class="danca" id="danca-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <section>
+        <h1>Bem-vindo ao meu site responsivo!</h1>
+        <p>Este é um exemplo de como criar um site que se adapta a diferentes dispositivos.</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Meu Site Responsivo</p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Função para alternar a classe 'active' no menu
+        document.getElementById("danca-icon").addEventListener("click", function() {
+            const menu = document.querySelector("nav ul");
+            menu.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
