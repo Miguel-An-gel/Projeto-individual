@@ -19,7 +19,7 @@ body {
 
 
 
-.quizForm {
+.formQuiz {
     display: inline;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -28,7 +28,7 @@ body {
     width: 100%;
     padding: 0px;
 }
-.quizForm h1{
+.formQuiz h1{
     color: #ffcc00;
     text-transform: uppercase;
     margin: 25px;
