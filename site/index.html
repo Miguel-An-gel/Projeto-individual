@@ -1,149 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dança de cores</title>
-    <style>
-        /* Resetando margens e padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description"
+        content="Dança com Cores - Explore o folclore boliviano através das danças tradicionais Caporales, Tinku, Diablada e Morenada.">
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Estilo do cabeçalho */
-        header {
-            background-color: #be1202;
-            color: white;
-            padding: 10px 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        /* Logo */
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Menu principal */
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-        }
-
-        /* Estilos para o ícone do hambúrguer */
-        .danca {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-        }
-
-        .danca span {
-            display: block;
-            height: 4px;
-            background-color: white;
-            border-radius: 4px;
-        }
-
-        img{
-            height: 50px;
-            width: 50px;
-        }
-        /* Menu responsivo (em telas menores) */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #be1202;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-                text-align: center;
-            }
-
-            .danca {
-                display: flex;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-        }
-
-        /* Seções do site */
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #be1202;
-            color: white;
-        }
-
-        /* Responsividade extra */
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
-            }
-        }
-
-        
-    </style>
+    <title>Dança com cores</title>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body>
+
     <!-- Cabeçalho com menu -->
     <header>
         <nav>
             <div class="logo">
-                <a href="#"><img src="../imagem/novalogo-removebg-preview.png" alt="Logo Dança com cores"></a>
+                <a href="index.html"><img src="imagens/logo.png" alt="Logo Dança com cores"></a>
+                </a>
             </div>
+
             <!-- Menu (links) -->
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Danças</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Jogar</a></li>
-                
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="jogo.html">Jogar</a></li>
+                <li><a href="login.html">Login</a></li>
+
             </ul>
-            
+
             <div class="danca" id="danca-icon">
                 <span></span>
                 <span></span>
@@ -154,22 +40,192 @@
 
     <!-- Conteúdo principal -->
     <section>
-        <h1>Bem-vindo!</h1>
-        <p>Vamos começar!</p>
+        <div class="introducao">
+
+            <img src="imagens/back/02old.jpg" alt="Imagem Principal" class="main-image">
+            <img src="imagens/back/Novo_Projeto-removebg-preview.png" alt="Imagem Sobreposta" class="overlay-image">
+            <div class="text">
+                <p>DANÇA COM CORES</p>
+                Uma das sensações mais contagiante do mundo é a dança. Venha conhecer um pouco de nossa dança folclórica
+                boliviana. Aqui você irá conhecer nossa cultura e danças. 
+                <p style="font-size: 20px;">Seja bem-vindo!</p>
+            </div>
+
+        </div>
+
+        <div class="conteudo01">
+            <div class="blocoimagem">
+
+                <img src="imagens/sobreMim/441587370_17911175765952396_2145137248749755691_n.jpg" alt="">
+            </div>
+            <div class="blocotexto">
+
+                <h2>Folclore</h2>
+                <p>A Bolívia é rica em cultura e tradição, com danças como Caporales, Tinku, Diablada e Morenada.</p>
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate iusto magnam ea, quam explicabo repellat sint
+                repudiandae doloribus corrupti optio illum laboriosam
+                molestiae quidem vero qui aliquam inventore, autem
+                provident.
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+        <!-- /////////////////////////////////////////////////////////////////// -->
+        <div class="conteudo01">
+
+            <div class="blocotexto">
+
+                <h2>DIABLADA</h2>
+                <p>A Bolívia é rica em cultura e tradição, com danças como Caporales, Tinku, Diablada e Morenada.</p>
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate iusto magnam ea, quam explicabo repellat sint
+                repudiandae doloribus corrupti optio illum laboriosam
+                molestiae quidem vero qui aliquam inventore, autem
+                provident.
+
+            </div>
+            <div class="blocoimagem">
+
+                <img src="imagens/imgDiablada/01 (1).jpg" alt="">
+            </div>
+
+
+
+
+        </div>
+        <div class="conteudo01">
+            <div class="blocoimagem">
+
+                <img src="imagens/caporal/01.jpg" alt="">
+            </div>
+            <div class="blocotexto">
+                <h2>CAPORAL</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ipsum numquam inventore
+                    perspiciatis accusamus possimus eligendi provident laborum temporibus reprehenderit repudiandae
+                    sapiente a rerum id voluptas, tempora illum facere quibusdam!
+                </p>
+            </div>
+
+
+        </div>
+        <div class="conteudo01">
+            <div class="blocotexto">
+                <h2>TINKUS</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae et quod cupiditate enim blanditiis
+                    recusandae. Beatae, explicabo autem? Fugiat molestiae unde perspiciatis facere at eaque voluptatum
+                    minus tenetur voluptates.
+                </p>
+
+            </div>
+            <div class="blocoimagem">
+
+                <img src="imagens/imgTinkus/03.jpg" alt="">
+            </div>
+
+        </div>
+        <div class="conteudo01">
+            <div class="blocoimagem">
+
+                <img src="imagens/imgMorenada/06.jpg" alt="">
+            </div>
+            <div class="blocotexto">
+                <h2>MORENADA</h2>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente cum provident eum ea unde aut
+                    facere blanditiis nemo ipsa, beatae perspiciatis officia, eos assumenda omnis itaque dignissimos
+                    reiciendis, deserunt quam!
+                </p>
+
+            </div>
+
+
+        </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; Todos os direitos reservados - Dança com Cores - 2024 </p>
+        <div class="footer-content">
+            <!-- Logo e Direitos Autorais -->
+            <div class="footer-logo">
+                <img src="../imagem/novalogo-removebg-preview.png" alt="Logo do site" class="logo">
+                <p>&copy; 2024 Dança com Cores. Todos os direitos reservados.</p>
+            </div>
+    
+            <!-- Navegação -->
+            <nav class="footer-nav">
+                
+                <address>
+                    Para mais informações:
+                    <a href="mailto:webmaster@somedomain.com">E-mail: dancacomcores@gmail.com</a
+                    >.<br />
+                    Você tambem pode querer nos visitar:
+                   Dança com cores<br />
+                    Rua: Haddock lobo, Consolação - 94043-0801<br />
+                    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5511954854326" target="_blank">
+                        <i class="fa fa-whatsapp">Contato: (11) 95485-4326</i>
+                    </a>
+                  </address>
+                
+                
+            </nav>
+    
+            <!-- Redes Sociais e GitHub -->
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
     </footer>
+    
 
     <!-- Script JavaScript -->
     <script>
         // Função para alternar a classe 'active' no menu
-        document.getElementById("danca-icon").addEventListener("click", function() {
+        document.getElementById("danca-icon").addEventListener("click", function () {
             const menu = document.querySelector("nav ul");
             menu.classList.toggle("active");
         });
+
+
+
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            const totalSlides = slides.length;
+            const translateValue = -index * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${translateValue}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 5000); // Muda o slide automaticamente a cada 3 segundos
+
+        showSlide(currentIndex); // Exibe o slide inicial
     </script>
 </body>
+
 </html>

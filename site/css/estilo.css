@@ -1,0 +1,947 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #ededed;
+    background-image: url(/site/imagens/back/02.jpg);
+
+
+}
+
+
+
+
+
+#quizForm {
+    display: inline;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+}
+
+.mainQuiz {
+    width: 80%;
+    margin: 0px auto;
+    background-color: #16406ccf;
+    color: #ddd;
+    padding: 80px 10px 10px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 20px;
+    padding: 4px;
+    border: 5px solid #16406cc2;
+    background-color: #16406ccf;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    width: 100%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+.question h2 {
+    color: #fcdc58e5;
+}
+
+.question label {
+    color: #ddd;
+    margin: 5px 0; /* Movido para cá */
+}
+
+
+button {
+    background-color: #16406cc2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #6200ea;
+}
+
+
+
+.mainQuiz label{
+    color: #ddd;
+}
+.mainQuiz h2{
+    color: #ededed;
+}
+.mainQuiz a{
+    color: #ffcc00;
+}
+
+
+
+
+
+
+
+
+/* Estilo do cabeçalho */
+header {
+    background: #16406c;
+    /* Cor inspirada no folclore boliviano */
+    color: #fff;
+    padding: 0.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+    transition: all 1s ease-in-out;
+ 
+    opacity: 0.7;
+
+}
+
+header h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* Logo */
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Menu principal */
+nav ul {
+    list-style: none;
+    display: flex;
+    
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Estilos para o ícone do hambúrguer */
+.danca {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.danca span {
+    display: block;
+    height: 4px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+}
+.logo small{
+    text-align: center;
+    margin: 0px;
+    justify-self: flex-start;
+}
+
+/* Seções do site */
+section {
+    
+    text-align: center;
+    
+    text-align: center;
+    max-width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+    /*background: linear-gradient(to bottom, #e5c7ca, #a1052c);*/
+}
+
+
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #16406c;
+    text-transform: uppercase;
+}
+
+section p {
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+
+.introducao {
+position: relative;
+width: 100%;
+}
+.main-image {
+display: block;
+width: 100%;
+height: auto;
+}
+.overlay-image {
+position: absolute;
+top: 10%;
+left: 10%;
+width: 30%;
+height: auto;
+}
+.text {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.text p{
+    color: chocolate;
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+/*
+carrosel
+*/
+.carousel {
+    padding-top:  5rem;
+    position: relative;
+    width: 100%;
+    
+    overflow: hidden;
+    z-index: 1;
+
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    width: 100%;
+    flex: none;
+}
+
+.carousel-item img {
+    border-radius: 0.5rem;
+    justify-items: center;
+    width: 100%;
+    display: block;
+   
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}.carousel img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+}
+
+ /*
+ sobre
+ */
+ 
+ .blocoimagemSobre {
+    height: 50%;
+    width: 50%;
+  
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.blocoimagemSobre img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.blocoimagemSobre .carousel-inner2 {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.blocoimagemSobre .carousel-item2 {
+    width: 100%;
+    flex: none;
+}
+
+.blocoimagemSobre .carousel-item2 img {
+    border-radius: 0.5rem;
+    justify-items: center;
+    width: 100%;
+    display: block;
+}
+
+.blocovideo{
+    height: 50%;
+    width: 50%;
+
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.blocovideo video{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.conteudo01 {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 1% 15%;
+    height: 40%;
+ 
+
+ 
+}
+
+.blocotexto {
+    height: 50%;
+    width: 50%;
+    font-size: 16px;
+ 
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.blocoimagem {
+    height: 45%;
+    width: 45%;
+ 
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.blocoimagem img {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.blocoimagem img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.blocoimagem img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem auto;
+    max-width: 500px;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #16406c;
+}
+
+form input,
+form textarea,
+form button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #16406c;
+}
+
+form button {
+    background: #16406c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #ffcc00;
+    color: #16406c;
+}
+
+footer {
+    background: #16406c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 0rem;
+
+bottom: 0;
+left: 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+a {
+    color: #16406c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.footer-content {
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.footer-logo {
+    border: 2px solid red;
+    align-items: center;
+    width: 33%;
+    text-align:start;
+    justify-content: center;
+    justify-items: center;
+}
+
+.footer-logo img.logo {
+   
+    
+    
+    
+    max-width: 100px;
+    margin-bottom: 10px;
+    left: 20%;
+}
+
+.footer-logo p {
+    border: 2px solid red;
+    font-size: 0.9em;
+    margin: 5px 0;
+
+}
+
+.footer-nav {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    border: 2px solid green;
+    justify-content:space-between;
+    width: 33%;
+    gap: 20px;
+
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    border: 2px solid blue;
+    
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    justify-content: end;
+    gap: 20px;
+    width: 33%;
+    
+}
+
+.footer-social a {
+    color: white;
+    border: 1px solid blue;
+    box-shadow: #ffcc00;
+    font-size: 0.9em;
+    justify-content: end;
+    justify-items: end;
+    padding-left: 10%;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+/*
+tamanho letras
+*/
+
+@media (max-width: 1572px) {
+    section p {
+        font-size: 17px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 30px;
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 1220px)  {
+    section p {
+        font-size: 15px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 30px;
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 1120px)  {
+    section p {
+        font-size: 12px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 930px)  {
+    section p {
+        font-size: 9px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+}
+ 
+ /* Tablet Portrait size to standard 960 (devices and browsers) */
+ @media  (min-width: 768px) and (max-width: 959px) {
+    section p {
+        font-size: 9px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+ }
+ 
+ /* All Mobile Sizes (devices and browser) */
+ @media  (max-width: 767px) {
+    section p {
+        font-size: 9px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+ }
+ 
+ /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+ @media  (min-width: 480px) and (max-width: 767px) {
+    section p {
+        font-size: 12px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 15px;
+        margin-bottom: 1rem;
+    }
+ }
+ 
+ /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+ @media  (max-width: 479px) {
+    section p {
+        font-size: 7px;
+        margin-bottom: 1rem;
+    }
+    section h2 {
+        font-size: 10px;
+        margin-bottom: 1rem;
+    }
+ }
+
+
+/* Menu responsivo (em telas menores) */
+@media (max-width: 768px) {
+
+    header {
+        background: #16406c;
+        /* Cor inspirada no folclore boliviano */
+        color: #fff;
+    
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        z-index: 2;
+        position: fixed;
+        transition: all 1s ease-in-out;
+     
+        opacity: 0.7;
+    
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        
+    }
+    
+
+.introducao{
+    padding-top: 0rem;
+    position: relative;
+    display: flex;
+    width: 100%;
+  
+}
+
+    .main-image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    }
+    .overlay-image {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: auto;
+    }
+
+.text {
+    position: absolute;
+    top: 10rem;
+    left: 70%;
+    width: 20rem;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+    .text p{
+        color: chocolate;
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+
+    
+.conteudo01 {
+    display: block;
+    flex-direction: row;
+    margin: 0px;
+    padding: 1% 10%;
+    height: 40%;
+    width: 100%;
+}
+
+.blocotexto {
+    height: 100%;
+    width:100%;
+    font-size: 16px;
+  
+    padding: 10px;
+    margin: 10px;
+}
+
+.blocoimagem {
+    height: 100%;
+    width:100%;
+ 
+    padding: 10px;
+    margin: 10px;
+}
+
+.blocoimagem img {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.blocoimagemSobre {
+    height: 100%;
+    width:100%;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.blocoimagemSobre img {
+    height: 100%;
+    width: 100%;
+}
+.blocovideo{
+    height: 100%;
+    width:100%;
+ 
+    padding: 10px;
+    margin: 10px;
+}
+
+    .carousel {
+        margin-top: 0rem;
+        padding: 0rem;
+        width: 100%;
+        margin: 0px;
+
+    }
+
+    nav ul {
+        z-index: 10;
+        display: none;
+        flex-direction: column;
+        background-color: #16406c;
+        position: relative;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+
+    }
+
+    .danca {
+        display: flex;
+    }
+
+    nav ul.active {
+        display: flex;
+        position: flex;
+        z-index: 20;
+        /* Garante que fique na frente do carrossel */
+        position: absolute;
+        /* Para flutuar acima do restante do conteúdo */
+        background-color: #16406c;
+        /* Fundo para melhor visibilidade */
+        top: 60px;
+        /* Ajuste conforme necessário */
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+
+    }
+
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    form {
+        max-width: 100%;
+        gap: 0.8rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+}
+
+
+/* Responsividade extra */
+@media (max-width: 480px) {
+    .introducao{
+        padding-top: 0rem;
+        position: relative;
+      
+        width: 100%;
+      
+      
+    }
+    
+        .main-image {
+        display: block;
+        width: 100%;
+        height: auto;
+    
+        }
+        .overlay-image {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 30%;
+        height: auto;
+        }
+    
+    .text {
+        position: absolute;
+        top: 7rem;
+        left: 70%;
+        width: 200px;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    
+        .text p{
+            color: chocolate;
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+    
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav a {
+        margin: 0 3px;
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 0.8rem;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+

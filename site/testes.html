@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Estilizado</title>
+    <style>
+       
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-logo img {
+            width: 100px;
+            height: auto;
+        }
+        .footer-logo p {
+            margin: 10px 0 0;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: #ff6347;
+        }
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .footer-social a:hover {
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="footer-content">
+            <!-- Logo e Direitos Autorais -->
+            <div class="footer-logo">
+                <img src="../imagem/novalogo-removebg-preview.png" alt="Logo do site" class="logo">
+                <p>&copy; 2024 Dança com Cores. Todos os direitos reservados.</p>
+            </div>
+
+            <!-- Navegação -->
+            <nav class="footer-nav">
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="login.html">Login</a>
+            </nav>
+
+            <!-- Redes Sociais e GitHub -->
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

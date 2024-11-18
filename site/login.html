@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dança com cores</title>
+    <link rel="stylesheet" href="css/estilo.css">    
+</head>
+<body>
+    <!-- Cabeçalho com menu -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="imagens/logo.png" alt="Logo Dança com cores"></a>
+            </div>
+            <!-- Menu (links) -->
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="jogo.html">Jogar</a></li>
+                <li><a href="login.html">Login</a></li>
+                
+            </ul>
+            
+            <div class="danca" id="danca-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="mainQuiz">
+            <h2>Login</h2>
+        <form  id="logar">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+            
+        </div>
+        
+    </main>
+    <footer>
+        <div class="footer-content">
+            <!-- Logo e Direitos Autorais -->
+            <div class="footer-logo">
+                <img src="../imagem/novalogo-removebg-preview.png" alt="Logo do site" class="logo">
+                <p>&copy; 2024 Dança com Cores. Todos os direitos reservados.</p>
+            </div>
+    
+            <!-- Navegação -->
+            <nav class="footer-nav">
+                
+                <address>
+                    Para mais informações:
+                    <a href="mailto:webmaster@somedomain.com">E-mail: dancacomcores@gmail.com</a
+                    >.<br />
+                    Você tambem pode querer nos visitar:
+                   Dança com cores<br />
+                    Rua: Haddock lobo, Consolação - 94043-0801<br />
+                    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5511954854326" target="_blank">
+                        <i class="fa fa-whatsapp">Contato: (11) 95485-4326</i>
+                    </a>
+                  </address>
+                
+                
+            </nav>
+    
+            <!-- Redes Sociais e GitHub -->
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Função para alternar a classe 'active' no menu
+        document.getElementById("danca-icon").addEventListener("click", function() {
+            const menu = document.querySelector("nav ul");
+            menu.classList.toggle("active");
+        });
+
+
+        const formulario = document.getElementById("logar");
+
+    formulario.addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita a submissão do formulário padrão
+
+      const formData = new FormData(formulario);
+      
+    const email = formData.get("email")
+    const senha = formData.get("senha")
+  
+            if(email=="miguel@gmail.com" && senha =="123"){
+                window.location.href = "jogo/quiz.html"
+            }
+   
+    });
+
+    
+    </script>
+</body>
+</html>
+
+
