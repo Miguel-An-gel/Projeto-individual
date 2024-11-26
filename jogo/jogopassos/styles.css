@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #001f3f, #FF851B);
+    color: white;
+    margin: 0;
+}
+
+header {
+    padding: 20px;
+    background-color: #FF4136;
+}
+
+button {
+    margin: 10px;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #2ECC40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+#trilhas {
+    display: flex;
+    flex: 3;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.trilha {
+    width: 80px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    margin: 0 10px;
+    position: relative;
+}
+
+.trilha span {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0px;
+    background-color: rgb(9, 49, 65);
+    border-radius: 5px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+#painel {
+    flex: 1;
+    background-color: #2ECC40;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+.trilha .nota {
+    animation: descerNota 3s linear;
+}
+
+@keyframes descerNota {
+    0% { top: -20px; }
+    100% { top: 400px; }
+    
+}
+.trilha.ativa {
+    background-color: #01FF70;
+}
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Hero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dance Hero</h1>
+        <p>Mostre seu talento com os passos da dança boliviana!</p>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    </header>
+    <section id="dashboard">
+        <h2>Dashboard de KPIs</h2>
+        <canvas id="graficoAcertosErros"></canvas>
+        <canvas id="graficoPrecisao"></canvas>
+    </section>
+    
+    <main>
+        <section id="escolha-danca">
+            <input type="radio" value="Caporales" name="" id="input_Caporales" onclick="">
+            <button onclick="iniciarJogo('Caporales')">Caporales</button>
+            <button onclick="iniciarJogo('Diablada')">Diablada</button>
+            <button onclick="iniciarJogo('Tinku')">Tinku</button>
+            <button onclick="iniciarJogo('Morenada')">Morenada</button>
+            <button id="start" onclick="iniciarJogo(input_Caporales.value)">Iniciar Jogo</button>
+        </section>
+        <section id="jogo" class="hidden">
+            <div id="trilhas">
+                <div class="trilha" id="trilha-a">A</div>
+                <div class="trilha" id="trilha-s">S</div>
+                <div class="trilha" id="trilha-d">D</div>
+                <div class="trilha" id="trilha-f">F</div>
+            </div>
+            <aside id="painel">
+                <h3>Estatísticas</h3>
+                <p>Pontuação: <span id="pontuacao">0</span></p>
+                <p>Acertos: <span id="acertos">0</span></p>
+                <p>Erros: <span id="erros">0</span></p>
+                <p>Precisão: <span id="precisao">0</span>%</p>
+                <button id="finalizar" onclick="finalizarJogo()">Finalizar Jogo</button>
+                <button id="start" onclick="iniciarJogo()">Iniciar Jogo</button>
+                <div id="tempo-restante" style="font-size: 20px; margin-top: 10px;">Tempo: 60s</div>
+
+                <div id="tempo-restante" style="font-size: 20px; margin-top: 10px;">Tempo: 60s</div>
+            </aside>
+            <div id="pontuacao">Pontuação: 0</div>
+        </section>
+        <section id="historico">
+            <h2>Histórico de Jogadores</h2>
+            <table id="tabelaHistorico">
+                <thead>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Pontuação</th>
+                        <th>Acertos</th>
+                        <th>Erros</th>
+                        <th>Precisão (%)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+      
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

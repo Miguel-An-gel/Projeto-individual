@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Simples</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #333;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #game {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 2px solid white;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .column {
+      position: relative;
+      width: 30%;
+      height: 100%;
+    }
+    .note {
+      position: absolute;
+      width: 90%;
+      height: 20px;
+      background-color: red;
+      left: 5%;
+    }
+    .hit-zone {
+      position: absolute;
+      bottom: 10px;
+      width: 90%;
+      height: 40px;
+      background-color: blue;
+      opacity: 0.5;
+      left: 5%;
+    }
+    #start-button {
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #start-button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <div class="column" data-key="ArrowLeft">
+      <div class="hit-zone"></div>
+    </div>
+    <div class="column" data-key="ArrowDown">
+      <div class="hit-zone"></div>
+    </div>
+    <div class="column" data-key="ArrowRight">
+      <div class="hit-zone"></div>
+    </div>
+  </div>
+  <button id="start-button">Iniciar</button><br>
+  <div id="tempo"></div><br>
+  <div id="pontuacao"></div>
+
+</body>
+</html>
+
+<script>
+ const game = document.getElementById("game");
+const startButton = document.getElementById("start-button");
+const pontuacao = document.getElementById("pontuacao");
+const tempo = document.getElementById("tempo");
+let score = 0;
+let gameInterval;
+let timerInterval;
+let timeLeft = 30; // 1 minuto de jogo
+
+// Função para criar uma nova nota
+function createNote() {
+  const columns = document.querySelectorAll(".column");
+  const randomColumn = columns[Math.floor(Math.random() * columns.length)];
+  const note = document.createElement("div");
+  note.classList.add("note");
+  note.style.top = "0px";
+  randomColumn.appendChild(note);
+
+  // Movendo a nota para baixo
+  const interval = setInterval(() => {
+    const top = parseInt(note.style.top.replace("px", ""));
+    note.style.top = top + 5 + "px";
+
+    // Remove a nota se ela sair da tela
+    if (top > game.offsetHeight) {
+      note.remove();
+      score -=10;
+      clearInterval(interval);
+    }
+  }, 50);
+}
+
+// Detectar teclas pressionadas
+document.addEventListener("keydown", (e) => {
+  const key = e.key;
+  const column = document.querySelector(`.column[data-key="${key}"]`);
+  if (column) {
+    const note = column.querySelector(".note");
+    if (note) {
+      const noteTop = parseInt(note.style.top.replace("px", ""));
+      if (noteTop > game.offsetHeight - 70 && noteTop < game.offsetHeight - 30) {
+        note.remove(); // Remove a nota se acertar
+        score += 10;
+        pontuacao.innerHTML = `Score: ${score}`;
+      }
+    }
+  }
+});
+
+// Iniciar o jogo
+function startGame() {
+  score = 0;
+  timeLeft = 30; // Reseta o tempo para 1 minuto
+  startButton.disabled = true;
+
+  // Cria notas periodicamente
+  gameInterval = setInterval(createNote, 1500);
+
+  // Conta o tempo restante
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    tempo.innerHTML = `Tempo restante: ${timeLeft}`;
+
+    if (timeLeft <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
+
+// Finalizar o jogo
+function endGame() {
+  clearInterval(gameInterval);
+  clearInterval(timerInterval);
+  startButton.disabled = false;
+
+  // Remove todas as notas restantes
+  document.querySelectorAll(".note").forEach((note) => note.remove());
+
+  alert(`Fim do jogo! Sua pontuação foi: ${score}`);
+}
+
+// Adicionar evento ao botão
+startButton.addEventListener("click", startGame);
+
+</script>

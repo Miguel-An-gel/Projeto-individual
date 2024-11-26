@@ -20,13 +20,13 @@ body {
 
 
 .formQuiz {
-    display: inline;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    margin: 0px;
-    width: 100%;
-    padding: 0px;
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0px;
+        width: 100%;
+        padding: 0px;
 }
 .formQuiz h1{
     color: chocolate;
@@ -47,14 +47,15 @@ body {
 
 .question {
     margin-bottom: 20px;
-    padding: 4px;
+    padding: 20px;
     border: 5px solid #16406cc2;
     background-color: #16406ccf;
+  
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
     width: 100%;
-    text-align: justify;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    display: block;
+
 }
 
 .question h2 {
@@ -75,6 +76,35 @@ button {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.perguntas{
+    background-color: #16406cc2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    width: 14vw;
+    height: 6vw;
+    margin: 1vw;
+    font-size: 15px;
+    font-weight: bold;
+}
+.perguntas:hover{
+    background-color: chocolate;
+}
+.imagemfoclore{
+    width: 90%;
+    height: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+
+
+}
+.imagemfocloreescolhido{
+    width: 30%;
+    height: 75%;
 }
 
 button:hover {
@@ -99,6 +129,8 @@ button:hover {
 }
 .mainQuiz h2{
     color: #ededed;
+    margin: 3vw;
+    font-size: 2vw;
 }
 .mainQuiz a{
     color: chocolate;

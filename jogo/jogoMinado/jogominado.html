@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Dança</title>
+</head>
+<body>
+    <h1>Dance com Cores!</h1>
+
+    Escolha o ritmo: 
+    <select id="select_qtd_campos">
+        <option value="4">Fácil (2x2)</option>
+        <option value="9">Médio (3x3)</option>
+        <option value="16">Difícil (4x4)</option>
+        <option value="25">Desafio (5x5)</option>
+    </select>
+    <button onclick="gerarCampos()">Novo Jogo</button>
+    <br>
+    Passos corretos: <span id="qtd_passos_corretos">?</span><br>
+    Passos errados: <span id="qtd_passos_errados">0</span><br>
+    Pontos: <span id="qtd_pontos">0</span><br>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    var passos_corretos = 0;
+    var passos_errados = 0;
+    var pontos_acumulados = 0;
+
+    function gerarCampos() {
+        passos_corretos = 0;
+        passos_errados = 0;
+        pontos_acumulados = 0;
+        div_resultado.innerHTML = '';
+        const qtd_campos = select_qtd_campos.value;
+
+        for (var i = 1; i <= qtd_campos; i++) {
+            var random = Math.round(Math.random());
+
+            if (random === 0) {
+                div_resultado.innerHTML += `<img id="img${i}" onclick="passo('errado', img${i})" src="https://cdn-icons-png.flaticon.com/512/1828/1828554.png" style="width:50px;">`;
+                passos_errados++;
+            } else {
+                div_resultado.innerHTML += `<img id="img${i}" onclick="passo('correto', img${i})" src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" style="width:50px;">`;
+                passos_corretos++;
+            }
+
+            if (i % Math.sqrt(qtd_campos) === 0) {
+                div_resultado.innerHTML += `<br>`;
+            }
+        }
+
+        qtd_passos_corretos.innerHTML = `${passos_corretos}`;
+        qtd_passos_errados.innerHTML = `0`;
+        qtd_pontos.innerHTML = `0`;
+    }
+
+    var listaClicados = [];
+
+    function passo(tipo, idimagem) {
+        if (listaClicados.includes(idimagem)) {
+            return alert('Você já clicou nesse passo!');
+        }
+
+        if (tipo === 'correto') {
+            pontos_acumulados += 100;
+            idimagem.src = 'https://cdn-icons-png.flaticon.com/512/888/888015.png'; // Ícone de sucesso
+            passos_corretos--;
+            listaClicados.push(idimagem);
+        } else if (tipo === 'errado') {
+            pontos_acumulados -= 50;
+            idimagem.src = 'https://cdn-icons-png.flaticon.com/512/888/888016.png'; // Ícone de erro
+            passos_errados--;
+            listaClicados.push(idimagem);
+        }
+
+        qtd_pontos.innerHTML = pontos_acumulados;
+        qtd_passos_corretos.innerHTML = passos_corretos;
+        qtd_passos_errados.innerHTML = passos_errados;
+
+        if (passos_corretos === 0) {
+            alert('Parabéns! Você acertou todos os passos!');
+        } else if (passos_errados === 0) {
+            alert('Que pena! Você cometeu muitos erros.');
+        }
+    }
+</script>

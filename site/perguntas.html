@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body style="background-image: url(imagens/back/02.jpg);">
+    <!-- Cabeçalho com menu -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="imagens/logo.png" alt="Logo Dança com cores"></a>
+            </div>
+            <!-- Menu (links) -->
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="jogo.html">Jogar</a></li>
+                <li><a href="login.html">Login</a></li>
+
+            </ul>
+
+            <div class="danca" id="danca-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <br>
+    <div id="questoes">
+        <div class="mainQuiz">
+            <div id="quizForm" class="formQuiz">
+                <h1>Qual dança combina mais com voce ?</h1>
+                <div class="question">
+                    <img class="imagemfoclore" src="imagens/back/iconesfolcloricos.png" alt="">
+                    <br><button class="perguntas" onclick="iniciar()">VAMOS COMEÇAR!</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div> <br>
+
+
+
+    <!-- Rodapé -->
+    <footer>
+        <span class="logo">
+            <section class="logotipo">
+                <img src="imagens/logo.png" alt="">
+                <h1>DANÇA COM CORES</h1>
+            </section>
+            <span class="direitos">© 2024 DANÇA COM CORES. Todos os direitos reservados.</span>
+        </span>
+
+
+        <div class="vl"></div>
+
+        <section class="infos">
+            <h1>FALE CONOSCO</h1>
+            <p>(11) 3456-7890</p>
+            <p>Rua Haddock Lobo, 595 - São Paulo, SP</p>
+            <a href="mailto:faleconosco@GasBusters.com">faleconosco@DancaComCores.com.br</a>
+
+            <div class="redes">
+                <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
+            </div>
+        </section>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    var dancas = []
+    var perguntas = [`
+    <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+        <h2>1. Qual dessas palavras descreve melhor sua personalidade?</h2>
+    <button class="perguntas" onclick="caporal()">Elegância</button>
+    <button class="perguntas"  onclick="tinku()">Energia</button>
+    <button class="perguntas"  onclick="morenada()">Tradição</button>
+    <button class="perguntas"  onclick="diablada()">Mistério</button>
+        </div>
+        </div>
+    </div>`,
+
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">    
+   <h2>2. Qual estilo de roupa você prefere?</h2>
+    <button class="perguntas"  onclick="caporal()">Trajes com bordados e chapéu elegante</button>
+    <button class="perguntas"  onclick="tinku()">Roupas leves para movimentos intensos</button>
+    <button class="perguntas"  onclick="morenada()">Trajes tradicionais com ornamentos</button>
+    <button class="perguntas"  onclick="diablada()">Fantasias impressionantes com máscaras</button>
+    </div>
+        </div>
+    </div>
+    `
+        ,
+        `<div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+    <h2>3. Como você gosta de dançar?</h2>
+    <button class="perguntas"  onclick="caporal()">Movimentos graciosos e sincronizados</button>
+    <button class="perguntas"  onclick="tinku()">Dança vigorosa e cheia de saltos</button>
+    <button class="perguntas"  onclick="morenada()">Ritmo forte e passos intensos em grupo</button>
+    <button class="perguntas"  onclick="diablada()">Uma mistura de drama e teatralidade</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+    <h2>4. Qual cenário combina mais com você?</h2>
+    <button class="perguntas"  onclick="caporal()">Um desfile cheio de pompa e ritmo marcante</button>
+    <button class="perguntas"  onclick="tinku()">Uma celebração cheia de força e energia em grupo</button>
+    <button class="perguntas"  onclick="morenada()">Uma festa tradicional com raízes comunitárias profundas</button>
+    <button class="perguntas"  onclick="diablada()">Uma apresentação teatral com história e fantasia</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `<div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+        <h2>5. Que tipo de música te atrai mais?</h2>
+    <button class="perguntas"  onclick="caporal()">Ritmos marcados pelo som do sino</button>
+    <button class="perguntas"  onclick="tinku()">Batidas fortes de tambores</button>
+    <button class="perguntas"  onclick="morenada()">Música folclórica tradicional e vibrante</button>
+    <button class="perguntas"  onclick="diablada()">Sons que misturam drama e intensidade</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+    <h2>6. Se você estivesse participando de um desfile, como seria sua postura?</h2>
+    <button  class="perguntas" onclick="caporal()">Orgulhoso(a) e elegante</button>
+    <button class="perguntas"  onclick="tinku()">Energético(a) e cheio(a) de vigor</button>
+    <button class="perguntas"  onclick="morenada()">Sereno(a) e em harmonia com o grupo</button>
+    <button  class="perguntas" onclick="diablada()">Misterioso(a) e teatral</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+    <h2>7. Qual tipo de celebração cultural te atrai mais?</h2>
+    <button class="perguntas"  onclick="caporal()">Festas comunitárias com desfiles e danças coreografadas</button>
+    <button class="perguntas"  onclick="tinku()">Eventos ao ar livre com desafios físicos e competitivos</button>
+    <button class="perguntas"  onclick="morenada()">Festas tradicionais onde a música e a união familiar são o centro</button>
+    <button  class="perguntas" onclick="diablada()">Celebrações que misturam teatro e drama religioso</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `   <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question"> 
+    <h2>8. Como você descreveria sua energia ao dançar?</h2>
+    <button class="perguntas"  onclick="caporal()">Moderada, mas com movimentos elegantes</button>
+    <button class="perguntas"  onclick="tinku()">Intensa e cheia de explosão</button>
+    <button  class="perguntas" onclick="morenada()">Constante, em harmonia com o grupo</button>
+    <button class="perguntas"  onclick="diablada()">Variável, dependendo do clima da apresentação</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+     <h2>9. Se você fosse escolher um acessório para sua roupa de dança, qual seria?</h2>
+    <button class="perguntas"  onclick="caporal()">Um chapéu decorado com detalhes brilhantes</button>
+    <button  class="perguntas" onclick="tinku()">Faixas e ornamentos leves</button>
+    <button class="perguntas"  onclick="morenada()">Máscaras ou detalhes tradicionais do folclore</button>
+    <button  class="perguntas" onclick="diablada()">Algo dramático, como uma capa ou asas</button>
+    </div>
+        </div>
+    </div>
+    `,
+        `
+        <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+    <h2>10. Qual destes ambientes você prefere para dançar?</h2>
+        <button class="perguntas"  onclick="caporal()">Palcos ou ruas com muitas pessoas assistindo</button>
+        <button class="perguntas"  onclick="tinku()">Áreas abertas, onde você pode se movimentar livremente</button>
+        <button class="perguntas"  onclick="morenada()">Locais históricos ou culturais</button>
+        <button class="perguntas"  onclick="diablada()">Teatros ou festas que envolvem uma narrativa</button>
+    </div>
+        </div>
+    </div>
+    `
+    ]
+    var contagemPerguntas = 0
+    var oMaisEscolhidoDanca = []
+
+    function iniciar() {
+
+        questoes.innerHTML = perguntas[contagemPerguntas]
+        contagemPerguntas++
+    }
+
+    function caporal() {
+        if (contagemPerguntas < 10) {
+            dancas.push("caporal")
+            questoes.innerHTML = perguntas[contagemPerguntas]
+            contagemPerguntas++
+        }
+        else {
+            mostrar()
+        }
+    }
+    function tinku() {
+        if (contagemPerguntas < 10) {
+            dancas.push("tinku")
+            questoes.innerHTML = perguntas[contagemPerguntas]
+            contagemPerguntas++
+        } else {
+            mostrar()
+        }
+    }
+    function morenada() {
+        if (contagemPerguntas < 10) {
+            dancas.push("morenada")
+            questoes.innerHTML = perguntas[contagemPerguntas]
+            contagemPerguntas++
+        } else {
+            mostrar()
+        }
+    }
+    function diablada() {
+        if (contagemPerguntas < 10) {
+            dancas.push("diablada")
+            questoes.innerHTML = perguntas[contagemPerguntas]
+            contagemPerguntas++
+        } else {
+            mostrar()
+        }
+
+    }
+
+    function mostrar() {
+        var dancaEscolhida = palavraQueMaisRepete(dancas)
+        if(dancaEscolhida=="caporal"){
+            questoes.innerHTML = `
+         <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+            <h2> A dança que mais combina com voce é ${dancaEscolhida}</h2>
+             <img class="imagemfocloreescolhido" src="imagens/iconefolcloricos/iconCaporal.png" alt=""> 
+    
+    </div>
+        </div>
+    </div>
+        `}else if(dancaEscolhida=="tinku"){
+            questoes.innerHTML = `
+         <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+            <h2> A dança que mais combina com voce é ${dancaEscolhida}</h2>
+             <img class="imagemfocloreescolhido" src="imagens/iconefolcloricos/iconTinkus.png" alt=""> 
+    
+    </div>
+        </div>
+    </div>
+        `}else if(dancaEscolhida=="morenada"){
+            questoes.innerHTML = `
+         <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+            <h2> A dança que mais combina com voce é ${dancaEscolhida}</h2>
+             <img class="imagemfocloreescolhido" src="imagens/iconefolcloricos/iconMorenada.png" alt=""> 
+    
+    </div>
+        </div>
+    </div>
+        `}else if(dancaEscolhida=="diablada"){
+            questoes.innerHTML = `
+         <div class="mainQuiz">
+        <div id="quizForm" class="formQuiz">
+            <h1>Qual dança combina mais com voce ?</h1>
+        <div class="question">
+               <h2> A dança que mais combina com voce é ${dancaEscolhida}</h2>
+             <img class="imagemfocloreescolhido" src="imagens/iconefolcloricos/iconDiablada.png" alt="">
+ 
+    </div>
+        </div>
+    </div>
+        `}
+        
+    }
+
+
+    function palavraQueMaisRepete(dancas) {
+        const contarPalavras = []; // Objeto para contar as palavras
+        let maisRepetidas = ""; // Palavra mais repetida
+        let maiorContagem = 0; // Contagem máxima
+
+        // Contar as palavras
+        for (let i = 0; i < dancas.length; i++) {
+            const palavra = dancas[i];
+            if (contarPalavras[palavra]) {
+                contarPalavras[palavra]++;
+            } else {
+                contarPalavras[palavra] = 1;
+            }
+
+            // Verificar se é a mais repetida
+            if (contarPalavras[palavra] > maiorContagem) {
+                maiorContagem = contarPalavras[palavra];
+                maisRepetidas = palavra;
+            }
+        }
+
+        return maisRepetidas
+    }
+
+    // Exemplo de uso
+
+
+
+
+</script>
