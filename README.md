@@ -1,46 +1,67 @@
-# Projeto-individual
-
 public abstract class Financiamento {
-    private Double valorTotal;
-    private Integer quantidadeParcelas;
-    private Integer parcelasPagas;
+    private double valorTotal;
+    private int quantidadeParcelas;
+    private int parcelasPagas;
 
-    public Financiamento(Double valorTotal, Integer quantidadeParcelas) {
+    public Financiamento(double valorTotal, int quantidadeParcelas) {
         this.valorTotal = valorTotal;
         this.quantidadeParcelas = quantidadeParcelas;
         this.parcelasPagas = 0;
     }
 
-    public abstract Double calcularValorFinanciamento();
+    public abstract double calcularValorFinanciamento();
 
-    public Double calcularValorParcela() {
+    public double calcularValorParcela() {
         return calcularValorFinanciamento() / quantidadeParcelas;
     }
 
-    public void pagarParcela(Double valor) throws PagamentoInvalidoException {
-        if (valor == null || !valor.equals(calcularValorParcela())) {
-            throw new PagamentoInvalidoException("Valor da parcela inválido.");
+    public void pagarParcela(double valor) throws Exception {
+        if (valor != calcularValorParcela()) {
+            throw new Exception("Valor da parcela incorreto.");
         }
         if (parcelasPagas >= quantidadeParcelas) {
-            throw new PagamentoInvalidoException("Financiamento já quitado.");
+            throw new Exception("Todas as parcelas já foram pagas.");
         }
         parcelasPagas++;
     }
 
-    public Double calcularValorPago() {
+    public double calcularValorPago() {
         return parcelasPagas * calcularValorParcela();
     }
 
-    public Double calcularValorAPagar() {
+    public double calcularValorAPagar() {
         return calcularValorFinanciamento() - calcularValorPago();
     }
+}
+public class FinanciamentoPF extends Financiamento {
+    private double valorVeiculo;
 
-    // Getters e Setters
+    public FinanciamentoPF(double valorVeiculo, int quantidadeParcelas) {
+        super(valorVeiculo * 1.2, quantidadeParcelas);
+        this.valorVeiculo = valorVeiculo;
+    }
+
+    @Override
+    public double calcularValorFinanciamento() {
+        return valorVeiculo * 1.2;
+    }
 }
 
+public class FinanciamentoPJ extends Financiamento {
+    private double valorVeiculo;
+    private double juros;
 
-Concessionária 
+    public FinanciamentoPJ(double valorVeiculo, double juros, int quantidadeParcelas) {
+        super(valorVeiculo * (1 + juros), quantidadeParcelas);
+        this.valorVeiculo = valorVeiculo;
+        this.juros = juros;
+    }
 
+    @Override
+    public double calcularValorFinanciamento() {
+        return valorVeiculo * (1 + juros);
+    }
+}
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,51 +73,35 @@ public class Concessionaria {
         this.financiamentos = new ArrayList<>();
     }
 
-    public void financiarVeiculo(Pessoa pessoa, Veiculo veiculo, Integer parcelas) throws Exception {
-        if (pessoa == null || veiculo == null || parcelas == null) {
-            throw new ValorInexistenteException("Pessoa, veículo ou parcelas não podem ser nulos.");
-        }
+    public void financiarVeiculoPF(double valorVeiculo, int parcelas) throws Exception {
         if (parcelas <= 0 || parcelas > 600) {
-            throw new RequisicaoDeFinanciamentoInvalidaException("Número de parcelas inválido.");
+            throw new Exception("Número de parcelas inválido.");
         }
-        if (pessoa.getCpf() == null || pessoa.getCpf().trim().length() != 11) {
-            throw new DocumentoInvalidoException("CPF inválido.");
-        }
-        Financiamento financiamento = new FinanciamentoPF(veiculo, parcelas);
+        Financiamento financiamento = new FinanciamentoPF(valorVeiculo, parcelas);
         financiamentos.add(financiamento);
     }
 
-    public void financiarVeiculo(Empresa empresa, Veiculo veiculo, Integer parcelas) throws Exception {
-        if (empresa == null || veiculo == null || parcelas == null) {
-            throw new ValorInexistenteException("Empresa, veículo ou parcelas não podem ser nulos.");
-        }
+    public void financiarVeiculoPJ(double valorVeiculo, double juros, int parcelas) throws Exception {
         if (parcelas <= 0 || parcelas > 600) {
-            throw new RequisicaoDeFinanciamentoInvalidaException("Número de parcelas inválido.");
+            throw new Exception("Número de parcelas inválido.");
         }
-        if (empresa.getCnpj() == null || empresa.getCnpj().trim().length() != 14) {
-            throw new DocumentoInvalidoException("CNPJ inválido.");
-        }
-        Financiamento financiamento = new FinanciamentoPJ(veiculo, empresa.getTipoEmpresa(), parcelas);
+        Financiamento financiamento = new FinanciamentoPJ(valorVeiculo, juros, parcelas);
         financiamentos.add(financiamento);
     }
 
-    public List<Financiamento> buscarPorCpf(String cpf) {
-        List<Financiamento> resultados = new ArrayList<>();
-        for (Financiamento financiamento : financiamentos) {
-            if (financiamento instanceof FinanciamentoPF) {
-                if (((FinanciamentoPF) financiamento).getPessoa().getCpf().equals(cpf)) {
-                    resultados.add(financiamento);
-                }
-            }
+    public double calcularValorTotalPago() {
+        double total = 0;
+        for (Financiamento f : financiamentos) {
+            total += f.calcularValorPago();
         }
-        return resultados;
+        return total;
     }
 
-    public Double totalValorPago() {
-        return financiamentos.stream().mapToDouble(Financiamento::calcularValorPago).sum();
-    }
-
-    public Double totalValorAPagar() {
-        return financiamentos.stream().mapToDouble(Financiamento::calcularValorAPagar).sum();
+    public double calcularValorTotalAPagar() {
+        double total = 0;
+        for (Financiamento f : financiamentos) {
+            total += f.calcularValorAPagar();
+        }
+        return total;
     }
 }
